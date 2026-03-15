@@ -113,7 +113,47 @@ const hairstyles = [
     },
 ];
 
+let favourites = JSON.parse(localStorage.getItem("hairspinFavourites")) || [];
 
+const saveFavourite = (hairstyleId) => {
+
+    const hairstyle = hairstyles.find(h => h.id === hairstyleId);
+    
+    const alreadySaved = favourites.find(h => h.id === hairstyleId);
+    
+    if (alreadySaved) {
+        // Remove it — toggle behaviour
+        favourites = favourites.filter(h => h.id !== hairstyleId);
+        showToast(`${hairstyle.name} removed from favourites`);
+    } else {
+        // Add it
+        favourites.push(hairstyle);
+        showToast(`${hairstyle.name} saved to favourites 🤎`);
+    }
+    
+    localStorage.setItem("hairspinFavourites", JSON.stringify(favourites));
+    
+
+    const currentFilter = document.querySelector(".pill.active").dataset.filter;
+    if (currentFilter === "saved") {
+        displayHairstyles(favourites);
+    } else {
+        displayHairstyles(hairstyles);
+    }
+};
+
+const showToast = (message) => {
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add("visible"), 10);
+    setTimeout(() => {
+        toast.classList.remove("visible");
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
+};
 //   GRAB ELEMENTS FROM THE PAGE
 
 const spinBtn = document.getElementById("spinBtn");
@@ -160,8 +200,9 @@ spinBtn.addEventListener("click", () => {
 
 
 //   DISPLAY ALL HAIRSTYLES
-
 const createHairstyleCard = (hairstyle) => {
+    const isSaved = favourites.find(h => h.id === hairstyle.id);
+    
     return `
         <div class="card grid-card">
             <div class="card-image">
@@ -197,13 +238,17 @@ const createHairstyleCard = (hairstyle) => {
                 </div>
                 <div class="price-row">
                     <span class="price">₦${hairstyle.price.toLocaleString()}</span>
-                    <button class="save-btn">Save ♡</button>
+                    <button 
+                        class="save-btn ${isSaved ? 'saved' : ''}" 
+                        onclick="saveFavourite(${hairstyle.id})"
+                    >
+                        ${isSaved ? 'Saved ♥' : 'Save ♡'}
+                    </button>
                 </div>
             </div>
         </div>
     `;
 };
-
 const displayHairstyles = (list) => {
     hairstyleGrid.innerHTML = list.map(createHairstyleCard).join("");
 };
@@ -212,7 +257,7 @@ const displayHairstyles = (list) => {
 displayHairstyles(hairstyles);
 
 
-//   SEARCH
+
 searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
     const filtered = hairstyles.filter(h =>
@@ -242,8 +287,11 @@ filterPills.forEach(pill => {
             filtered = hairstyles.filter(h => h.hours <= 3);
         } else if (filter === "shoulder") {
             filtered = hairstyles.filter(h => h.length === "medium");
-        }
+        }else if (filter === "saved") {
+    filtered = favourites;
+}
 
         displayHairstyles(filtered);
     });
 });
+
