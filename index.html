@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HairSpin ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <section class="hero">
+        <h1 class="logo">Hair<span>Spin</span> ✦</h1>
+        <p class="tagline">find your perfect style</p>
+        <button class="spin-btn" id="spinBtn">Spin for me</button>
+    </section>
+
+    <div class="quote-strip">
+        <p>"Because every girl deserves to love her hair ✨"</p>
+    </div>
+
+   
+    <section class="result-section" id="resultSection">
+        <div class="card" id="hairstyleCard">
+            <div class="badge-row">
+                <span class="badge badge-brown" id="cardCategory">Braids</span>
+                <span class="badge badge-pink" id="cardLength">Medium length</span>
+            </div>
+            <h2 class="card-title" id="cardName">Passion Twists</h2>
+            <p class="card-sub" id="cardAttachment">Attachment: Passion hair extension</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-val" id="cardHours">5 hrs</span>
+                    <span class="stat-lbl">Duration</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-val" id="cardPacks">4 packs</span>
+                    <span class="stat-lbl">Extensions</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-val" id="cardRating">★ 4.8</span>
+                    <span class="stat-lbl">Rating</span>
+                </div>
+            </div>
+            <div class="price-row">
+                <span class="price" id="cardPrice">₦15,000</span>
+                <button class="save-btn" id="saveBtn">Save ♡</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH & FILTERS -->
+    <section class="search-section">
+        <input 
+            type="text" 
+            class="search-input" 
+            id="searchInput"
+            placeholder="Search hairstyles..."
+        />
+        <div class="filter-row">
+            <button class="pill active" data-filter="all">All</button>
+            <button class="pill" data-filter="easy">Easy</button>
+            <button class="pill" data-filter="budget">Under ₦10k</button>
+            <button class="pill" data-filter="quick">Under 3 hrs</button>
+            <button class="pill pink-pill" data-filter="shoulder">Shoulder ♡</button>
+        </div>
+    </section>
+
+    <!-- HAIRSTYLES GRID -->
+    <section class="grid-section">
+        <h3 class="section-heading">All Hairstyles</h3>
+        <div class="hairstyle-grid" id="hairstyleGrid">
+            <!-- Cards injected by JavaScript -->
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

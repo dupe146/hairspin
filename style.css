@@ -1,0 +1,327 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --dark-mocha: #3D1F0F;
+    --warm-brown: #6B3A20;
+    --terracotta: #C4866A;
+    --dusty-pink: #F9ECF0;
+    --pink-accent: #A05070;
+    --warm-nude: #F0E8E0;
+    --cream: #FAF5F0;
+    --white: #FFFFFF;
+    --border: #E8DDD4;
+    --muted-text: #A08070;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--cream);
+    color: var(--dark-mocha);
+    min-height: 100vh;
+}
+
+.hero {
+    background-color: var(--white);
+    text-align: center;
+    padding: 3rem 1.5rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--dark-mocha);
+    letter-spacing: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.logo span {
+    color: var(--terracotta);
+}
+
+.tagline {
+    font-size: 0.75rem;
+    color: var(--muted-text);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 1.8rem;
+}
+
+.spin-btn {
+    background-color: var(--dark-mocha);
+    color: var(--cream);
+    border: none;
+    border-radius: 40px;
+    padding: 14px 40px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
+}
+
+.spin-btn:hover {
+    background-color: var(--warm-brown);
+}
+
+.quote-strip {
+    background-color: var(--dusty-pink);
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.quote-strip p {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--pink-accent);
+    font-style: italic;
+}
+
+.result-section {
+    padding: 1.5rem;
+    display: none;
+}
+
+.result-section.visible {
+    display: block;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 1.4rem;
+    border: 1px solid var(--border);
+}
+
+.badge-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.badge-brown {
+    background-color: var(--warm-nude);
+    color: var(--warm-brown);
+}
+
+.badge-pink {
+    background-color: var(--dusty-pink);
+    color: var(--pink-accent);
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--dark-mocha);
+    margin-bottom: 4px;
+}
+
+.card-sub {
+    font-size: 0.8rem;
+    color: var(--muted-text);
+    margin-bottom: 1rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    background-color: var(--cream);
+    border-radius: 10px;
+    padding: 10px 8px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.stat-val {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--warm-brown);
+}
+
+.stat-lbl {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--muted-text);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.price {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--dark-mocha);
+    font-weight: 600;
+}
+
+.save-btn {
+    background-color: var(--dusty-pink);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+    color: var(--pink-accent);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.save-btn:hover {
+    background-color: var(--pink-accent);
+    color: var(--white);
+}
+
+.search-section {
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.search-input {
+    width: 100%;
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 12px 20px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--dark-mocha);
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+.search-input::placeholder {
+    color: var(--muted-text);
+}
+
+.search-input:focus {
+    border-color: var(--terracotta);
+}
+
+.filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 7px 16px;
+    font-size: 0.75rem;
+    color: var(--muted-text);
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+}
+
+.pill:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+}
+
+.pill.active {
+    background-color: var(--dark-mocha);
+    color: var(--cream);
+    border-color: var(--dark-mocha);
+    font-weight: 500;
+}
+
+.pink-pill {
+    background-color: var(--dusty-pink);
+    color: var(--pink-accent);
+    border-color: var(--dusty-pink);
+}
+
+.grid-section {
+    padding: 1.5rem;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--dark-mocha);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hairstyle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.grid-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.hairstyle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hairstyle-img:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.2rem;
+}
+
+.maintenance-tip {
+    background-color: var(--dusty-pink);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    color: var(--pink-accent);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
