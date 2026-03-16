@@ -122,11 +122,11 @@ const saveFavourite = (hairstyleId) => {
     const alreadySaved = favourites.find(h => h.id === hairstyleId);
     
     if (alreadySaved) {
-        // Remove it — toggle behaviour
+    
         favourites = favourites.filter(h => h.id !== hairstyleId);
         showToast(`${hairstyle.name} removed from favourites`);
     } else {
-        // Add it
+
         favourites.push(hairstyle);
         showToast(`${hairstyle.name} saved to favourites 🤎`);
     }
